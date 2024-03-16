@@ -1,4 +1,15 @@
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js'
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    TimeScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js'
+import 'chartjs-adapter-dayjs-4/dist/chartjs-adapter-dayjs-4.esm'
 import { useState } from 'react'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import { Context } from 'chartjs-plugin-datalabels'
@@ -11,7 +22,7 @@ import LifePointDialog from '../components/LifePointDialog'
 import { LifePoint } from '../types'
 import AddLifePoint from './AddLifePoint'
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ChartDataLabels)
+ChartJS.register(CategoryScale, LinearScale, PointElement, TimeScale, LineElement, Title, Tooltip, Legend, ChartDataLabels)
 
 const GRAPH_COLOR = 'rgb(75, 192, 192)'
 
@@ -50,6 +61,15 @@ export default function LifeLine() {
         },
 
         scales: {
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'year',
+                    displayFormats: {
+                        quarter: 'DD MM YYYY'
+                    }
+                },
+            },
             y: {
                 max: 5,
                 min: -5,
