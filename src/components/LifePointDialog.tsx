@@ -10,11 +10,13 @@ import Box from '@mui/material/Box'
 import { LifePoint, lifePointSchema } from '../types'
 import Slider from '@mui/material/Slider'
 import { nanoid } from '@reduxjs/toolkit'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { lifePointAdded, lifePointDeleted, lifePointModified } from '../features/lifePoints/lifePointsSlice'
 import { Formik, Form } from 'formik'
 import { DialogContent } from '@mui/material'
 import { Delete } from '@mui/icons-material'
+import { getAge } from '../utils/utils'
+import { RootState } from '../app/store'
 
 interface SimpleDialogProps {
     open: boolean
@@ -24,6 +26,7 @@ interface SimpleDialogProps {
 }
 
 export default function LifePointDialog({ onClose, open, isEditing = false, initialData }: SimpleDialogProps) {
+    const settings = useSelector((state: RootState) => state.settings)
     let initialLifePoint = initialData || {
         id: nanoid(),
         date: '',
@@ -97,6 +100,7 @@ export default function LifePointDialog({ onClose, open, isEditing = false, init
                                         required
                                     />
                                 </Box>
+                                <Box sx={{ fontSize: 'small' }}>You were {getAge(settings.birthDate, values.date)}</Box>
                                 <Box sx={{ m: 3 }} />
                                 <TextField
                                     id="descrAddDialog"
@@ -142,7 +146,12 @@ export default function LifePointDialog({ onClose, open, isEditing = false, init
                                 >
                                     {isEditing && (
                                         <>
-                                            <Button type="button" variant="contained" color="error" onClick={handleDelete}>
+                                            <Button
+                                                type="button"
+                                                variant="contained"
+                                                color="error"
+                                                onClick={handleDelete}
+                                            >
                                                 <Delete />
                                             </Button>
                                             <Box sx={{ m: 1 }} />

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import { RootState } from '../app/store'
-import { Box, List, ListItem } from '@mui/material'
+import { List } from '@mui/material'
+import LifePoint from './LifePoint'
 
 export default function LifePoints() {
     const lifePoints = useSelector((state: RootState) => state.lifePoints)
@@ -12,12 +13,7 @@ export default function LifePoints() {
     return (
         <List>
             {lifePoints.present.map((point) => (
-                <ListItem key={point.id} sx={{ display: 'block' }}>
-                    <Box component="h3">
-                        {point.date} - {point.title} [{point.value}]
-                    </Box>
-                    <Box component="p" sx={{ m: 0 }}>{point.description}</Box>
-                </ListItem>
+                <LifePoint point={point} key={point.id} />
             ))}
         </List>
     )
