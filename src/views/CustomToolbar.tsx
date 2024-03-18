@@ -5,6 +5,7 @@ import UploadFile from '../components/UploadFile'
 import SaveToFile from '../components/SaveToFile'
 import Undo from '../components/Undo'
 import Redo from '../components/Redo'
+import Print from '../components/Print'
 
 export default function CustomToolbar() {
     return (
@@ -20,6 +21,7 @@ export default function CustomToolbar() {
                 <Title />
                 <Undo />
                 <Redo />
+                <Print />
                 <EditSettings />
                 <UploadFile />
                 <SaveToFile />
