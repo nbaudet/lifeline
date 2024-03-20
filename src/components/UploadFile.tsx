@@ -1,7 +1,7 @@
 import { ChangeEvent } from 'react'
 import FileOpenIcon from '@mui/icons-material/FileOpen'
 import { useDispatch } from 'react-redux'
-import { lifePointSetted } from '../features/lifePoints/lifePointsSlice'
+import { lifePointsSet } from '../features/lifePoints/lifePointsSlice'
 import { settingmodified } from '../features/settings/settingsSlice'
 import IconButton from './base/IconButton'
 import { ActionCreators } from 'redux-undo'
@@ -24,7 +24,7 @@ export default function UploadFile() {
             const data = JSON.parse(result as string)
             dispatch(ActionCreators.clearHistory())
             dispatch(settingmodified(data.settings))
-            dispatch(lifePointSetted(data.lifePoints))
+            dispatch(lifePointsSet(data.lifePoints))
         }
         reader.readAsText(file, 'utf-8')
     }

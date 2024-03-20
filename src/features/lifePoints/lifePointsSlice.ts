@@ -24,11 +24,11 @@ const lifePointsSlice = createSlice({
                 1
             )
         },
-        lifePointSetted(_state, action) {
+        lifePointsSet(_state, action) {
             return action.payload
         },
     },
 })
 
-export const { lifePointAdded, lifePointModified, lifePointDeleted, lifePointSetted } = lifePointsSlice.actions
+export const { lifePointAdded, lifePointModified, lifePointDeleted, lifePointsSet } = lifePointsSlice.actions
 export default lifePointsSlice.reducer
