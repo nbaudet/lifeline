@@ -1,10 +1,5 @@
 import { object, string, number, date } from 'yup'
 
-export type AppState = {
-    settings: Settings
-    lifePoints: LifePoints
-}
-
 export type Settings = {
     name: string
     birthDate: string
