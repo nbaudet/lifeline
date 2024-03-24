@@ -1,21 +1,15 @@
-import { Button } from '@mui/material'
 import { FileDownload } from '@mui/icons-material'
 import { useSelector } from 'react-redux'
 import { RootState } from '../app/store'
-
-// declare global {
-//     interface Window {
-//         showSaveFilePicker: (any) => Promise<FileSystemFileHandle>
-//     }
-// }
+import IconButton from './base/IconButton'
+import { canDownloadFileSelector } from '../utils/selectors'
 
 export default function SaveToFile() {
-    // const stateRef = useRef<AppState>()
-
     const lifePoints = useSelector((state: RootState) => state.lifePoints)
     const settings = useSelector((state: RootState) => state.settings)
+    const canDownloadFile = canDownloadFileSelector(lifePoints)
 
-    async function handleSave() {
+    function handleSave() {
         try {
             // Encode function
             const str = JSON.stringify({
@@ -27,7 +21,7 @@ export default function SaveToFile() {
                 type: 'application/json;charset=utf-8',
             })
 
-            // Create link and download it
+            // Create link and download the state in JSON file
             const fileName = settings.name.replace(/[^A-Z0-9]+/gi, '_')
             const downloadelem = document.createElement('a')
             const url = URL.createObjectURL(blob)
@@ -37,20 +31,6 @@ export default function SaveToFile() {
             downloadelem.click()
             downloadelem.remove()
             URL.revokeObjectURL(url)
-
-            // // create a new handle
-            // const newHandle = await window.showSaveFilePicker({
-            //     suggestedName: 'lifePoints.json',
-            // })
-
-            // // create a FileSystemWritableFileStream to write to
-            // const writableStream = await newHandle.createWritable()
-
-            // // write our file
-            // await writableStream.write(JSON.stringify(state))
-
-            // // close the file and write the contents to disk.
-            // await writableStream.close()
         } catch (err) {
             console.error(err)
         }
@@ -58,16 +38,13 @@ export default function SaveToFile() {
 
     return (
         <>
-            <Button
-                startIcon={<FileDownload />}
-                variant="text"
-                color="inherit"
-                component="label"
-                onClick={handleSave}
-                sx={{ flexDirection: 'column' }}
+            <IconButton
+                icon={<FileDownload />}
+                handleClick={handleSave}
+                disabled={!canDownloadFile}
             >
                 Save to file
-            </Button>
+            </IconButton>
         </>
     )
 }

@@ -7,9 +7,10 @@ interface IProps {
     children: string | React.ReactElement
     handleClick?: any
     handleClickAction?: UnknownAction
+    disabled?: boolean
 }
 
-export default function IconButton({ icon, children, handleClick, handleClickAction }: IProps) {
+export default function IconButton({ icon, children, handleClick, handleClickAction, disabled = false }: IProps) {
     const dispatch = useDispatch()
     return (
         <Button
@@ -25,7 +26,8 @@ export default function IconButton({ icon, children, handleClick, handleClickAct
                     return dispatch(handleClickAction)
                 }
             }}
-            sx={{ flexDirection: 'column' }}
+            sx={{ flexDirection: 'column', '& .MuiButton-icon': { m: 0 } }}
+            disabled={disabled}
         >
             {children}
         </Button>
