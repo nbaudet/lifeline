@@ -82,7 +82,7 @@ export default function LifePointDialog({ onClose, open, isEditing = false, init
                                         value={values.date}
                                         onChange={handleChange}
                                         error={touched.date && Boolean(errors.date)}
-                                        helperText={touched.date && errors.date}
+                                        helperText={<>{touched.date && errors.date}</>}
                                         variant="outlined"
                                         InputLabelProps={{ shrink: true }}
                                         required
@@ -100,7 +100,11 @@ export default function LifePointDialog({ onClose, open, isEditing = false, init
                                         required
                                     />
                                 </Box>
-                                <Box sx={{ fontSize: 'small' }}>You were {getAge(settings.birthDate, values.date)}</Box>
+                                {settings.birthDate && values.date && (
+                                    <Box sx={{ fontSize: 'small' }}>
+                                        You were {getAge(settings.birthDate, values.date.toString())}
+                                    </Box>
+                                )}
                                 <Box sx={{ m: 3 }} />
                                 <TextField
                                     id="descrAddDialog"

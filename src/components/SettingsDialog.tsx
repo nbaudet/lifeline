@@ -6,7 +6,7 @@ import SaveIcon from '@mui/icons-material/Save'
 import TextField from '@mui/material/TextField'
 import Box from '@mui/material/Box'
 import { AppState, Settings } from '../types'
-import { settingmodified } from '../features/settings/settingsSlice'
+import { settingModified } from '../features/settings/settingsSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 interface SimpleDialogProps {
@@ -24,7 +24,7 @@ export default function SettingsDialog({ onClose, open }: SimpleDialogProps) {
     }, [settings])
 
     const handleOnClose = (newSettings?: Settings) => {
-        if (newSettings) dispatch(settingmodified(newSettings))
+        if (newSettings) dispatch(settingModified(newSettings))
         onClose()
     }
 

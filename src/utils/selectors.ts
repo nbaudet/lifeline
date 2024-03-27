@@ -3,7 +3,7 @@ import { LifePoints, Settings } from '../types'
 import { StateWithHistory } from 'redux-undo'
 
 export const isReadySelector = createSelector([(settings: Settings) => settings], (settings) => {
-    return settings.name !== '' && settings.birthDate !== ''
+    return settings.name !== '' && !!settings.birthDate
 })
 
 export const hasLifePointSelector = createSelector(

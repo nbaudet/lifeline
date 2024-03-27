@@ -3,7 +3,9 @@ import { LifePoint, LifePoints } from '../../types'
 
 const initialState: LifePoints = []
 
-const compare = (a: LifePoint, b: LifePoint) => a.date.localeCompare(b.date)
+const compare = (a: LifePoint, b: LifePoint) => {
+    return a.date!.toString().localeCompare(b.date!.toString())
+}
 
 const lifePointsSlice = createSlice({
     name: 'lifePoints',

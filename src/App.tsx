@@ -7,6 +7,7 @@ import Wizard from './views/Wizard'
 import LifePoints from './views/LifePoints'
 import GraphName from './components/GraphName'
 import { isReadySelector } from './utils/selectors'
+import Alert from './components/Alert'
 
 function App() {
     const settings = useSelector((state: RootState) => state.settings)
@@ -28,6 +29,7 @@ function App() {
             )}
 
             <LifePoints />
+            <Alert />
         </Container>
     )
 }

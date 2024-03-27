@@ -3,18 +3,18 @@ import { Settings } from '../../types'
 
 const initialState: Settings = {
     name: '',
-    birthDate: '',
+    birthDate: null,
 }
 
 const settingsSlice = createSlice({
     name: 'settings',
     initialState,
     reducers: {
-        settingmodified(_state, action) {
+        settingModified(_state, action) {
             return action.payload
         },
     },
 })
 
-export const { settingmodified } = settingsSlice.actions
+export const { settingModified } = settingsSlice.actions
 export default settingsSlice.reducer
