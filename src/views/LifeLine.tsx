@@ -123,7 +123,7 @@ export default function LifeLine() {
     }
 
     return (
-        <Box sx={{ mt: 3, justifyContent: 'center' }}>
+        <Box sx={{ mt: 3, justifyContent: 'center', breakAfter: 'page' }}>
             <Line options={options} data={_data} />
             <AddLifePoint />
             <LifePointDialog open={open} onClose={handleOpenState} initialData={initialData} isEditing />

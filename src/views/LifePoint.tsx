@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux'
 import { RootState } from '../app/store'
-import { Box, ListItem } from '@mui/material'
+import { Box, ListItem, TextField } from '@mui/material'
 import { useMemo } from 'react'
 import type { LifePoint } from '../types'
 import { getAge } from '../utils/utils'
 import dayjs from 'dayjs'
+import theme from '../theme'
 
 interface IProps {
     point: LifePoint
@@ -22,12 +23,24 @@ export default function LifePoint({ point }: IProps) {
 
     return (
         <ListItem sx={{ display: 'block' }}>
-            <Box component="h3">
+            <Box component="h3" sx={{ breakAfter: 'avoid-column'}}>
                 {dayjs(point.date).format('DD.MM.YYYY')} - {point.title} [{point.value}] - {age}
             </Box>
-            <Box component="p" sx={{ m: 0 }}>
-                {point.description}
-            </Box>
+            <TextField
+                value={point.description}
+                disabled
+                multiline
+                sx={{
+                    m: 0,
+                    width: '100%',
+                    '& .MuiInputBase-root::before': { border: 0 },
+                    '& .MuiInputBase-input': {
+                        color: theme.palette.text.primary,
+                        WebkitTextFillColor: theme.palette.text.primary,
+                    },
+                }}
+                variant="standard"
+            />
         </ListItem>
     )
 }

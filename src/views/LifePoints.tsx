@@ -11,7 +11,13 @@ export default function LifePoints() {
     }
 
     return (
-        <List>
+        <List
+            sx={{
+                '@media print': {
+                    columnCount: 2,
+                },
+            }}
+        >
             {lifePoints.present.map((point) => (
                 <LifePoint point={point} key={point.id} />
             ))}
