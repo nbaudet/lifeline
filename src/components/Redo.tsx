@@ -10,7 +10,7 @@ export default function Redo() {
     const hasFutureState = hasFutureStateSelector(lifePoints)
 
     return (
-        <IconButton icon={<RedoOutlined />} handleClickAction={ActionCreators.redo()} disabled={!hasFutureState}>
+        <IconButton icon={<RedoOutlined />} handleClickActions={[ActionCreators.redo()]} disabled={!hasFutureState}>
             Redo
         </IconButton>
     )

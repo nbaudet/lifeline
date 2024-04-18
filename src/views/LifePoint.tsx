@@ -24,7 +24,7 @@ export default function LifePoint({ point }: IProps) {
     return (
         <ListItem sx={{ display: 'block' }}>
             <Box component="h3" sx={{ breakAfter: 'avoid-column'}}>
-                {dayjs(point.date).format('DD.MM.YYYY')} - {point.title} [{point.value}] - {age}
+                {dayjs(point.date).format('DD.MM.YYYY')} · {point.title} [{point.value}] · {age}
             </Box>
             <TextField
                 value={point.description}

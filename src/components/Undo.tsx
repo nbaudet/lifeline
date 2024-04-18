@@ -10,7 +10,7 @@ export default function Undo() {
     const hasPastState = hasPastStateSelector(lifePoints)
 
     return (
-        <IconButton icon={<UndoOutlined />} handleClickAction={ActionCreators.undo()} disabled={!hasPastState}>
+        <IconButton icon={<UndoOutlined />} handleClickActions={[ActionCreators.undo()]} disabled={!hasPastState}>
             Undo
         </IconButton>
     )

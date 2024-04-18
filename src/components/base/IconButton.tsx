@@ -6,11 +6,11 @@ interface IProps {
     icon: React.ReactElement
     children: string | React.ReactElement
     handleClick?: any
-    handleClickAction?: UnknownAction
+    handleClickActions?: UnknownAction[]
     disabled?: boolean
 }
 
-export default function IconButton({ icon, children, handleClick, handleClickAction, disabled = false }: IProps) {
+export default function IconButton({ icon, children, handleClick, handleClickActions, disabled = false }: IProps) {
     const dispatch = useDispatch()
     return (
         <Button
@@ -22,8 +22,8 @@ export default function IconButton({ icon, children, handleClick, handleClickAct
                 if (handleClick) {
                     return handleClick()
                 }
-                if (handleClickAction) {
-                    return dispatch(handleClickAction)
+                if (handleClickActions) {
+                    return handleClickActions.map((action) => dispatch(action))
                 }
             }}
             sx={{ flexDirection: 'column', '& .MuiButton-icon': { m: 0 } }}

@@ -1,7 +1,7 @@
 import { ChangeEvent, useRef } from 'react'
 import FileOpenIcon from '@mui/icons-material/FileOpen'
 import { useDispatch } from 'react-redux'
-import { lifePointsSet } from '../features/lifePoints/lifePointsSlice'
+import { lifePointsSetted } from '../features/lifePoints/lifePointsSlice'
 import { settingModified } from '../features/settings/settingsSlice'
 import IconButton from './base/IconButton'
 import { ActionCreators } from 'redux-undo'
@@ -31,7 +31,7 @@ export default function UploadFile() {
                 await rootStateSchema.validate(data)
                 dispatch(ActionCreators.clearHistory())
                 dispatch(settingModified(data.settings))
-                dispatch(lifePointsSet(data.lifePoints))
+                dispatch(lifePointsSetted(data.lifePoints))
             } catch (e) {
                 if(fileInput?.current?.value) {
                 fileInput.current.value = ''

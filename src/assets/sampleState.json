@@ -1,0 +1,64 @@
+{
+  "settings": {
+    "name": "Douglas Adam's life",
+    "birthDate": "1952-03-11"
+  },
+  "lifePoints": [
+    {
+      "id": "lp1",
+      "title": "Birth",
+      "date": "1952-03-11",
+      "value": 1,
+      "description": "Douglas Adams is born in Cambridge, England. It was widely regarded as a great move."
+    },
+    {
+      "id": "lp2",
+      "title": "Education",
+      "date": "1970-01-01",
+      "value": 3,
+      "description": "Adams attends St John's College, Cambridge, where he studies English literature."
+    },
+    {
+      "id": "lp3",
+      "title": "H2G2's Radio Series",
+      "date": "1978-01-01",
+      "value": 4.5,
+      "description": "Adams creates the radio series adaptation of 'The Hitchhiker's Guide to the Galaxy,' which gains widespread popularity."
+    },
+    {
+      "id": "lp4",
+      "title": "H2G2's Publication",
+      "date": "1979-01-01",
+      "value": 5,
+      "description": "The first book in the 'Hitchhiker's Guide to the Galaxy' series is published, becoming a cult classic."
+    },
+    {
+      "id": "lp5",
+      "title": "Success",
+      "date": "1980-01-01",
+      "value": 4,
+      "description": "Adams achieves success as a writer, penning several best-selling books and scripts."
+    },
+    {
+      "id": "lp6",
+      "title": "Collaboration",
+      "date": "1985-01-01",
+      "value": 4,
+      "description": "Adams collaborates with the comedy group Monty Python on various projects."
+    },
+    {
+      "id": "lp7",
+      "title": "Last Chance to See",
+      "date": "1990-01-01",
+      "value": 4,
+      "description": "Adams co-authors 'Last Chance to See,' a book highlighting endangered species and environmental issues."
+    },
+    {
+      "id": "lp8",
+      "title": "Death",
+      "date": "2001-05-11",
+      "value": -4,
+      "description": "Douglas Adams passes away unexpectedly in Santa Barbara, California, at the age of 49. Don't panic."
+    }
+  ]
+}
