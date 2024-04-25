@@ -17,17 +17,8 @@ function App() {
         <Container disableGutters={true} maxWidth="xl" sx={{ display: 'flex', flexDirection: 'column' }}>
             <CustomToolbar />
             <GraphName />
-            {!isReady && (
-                <>
-                    <Wizard />
-                </>
-            )}
-            {isReady && (
-                <>
-                    <LifeLine />
-                </>
-            )}
-
+            {!isReady && <Wizard />}
+            {isReady && <LifeLine />}
             <LifePoints />
             <Alert />
         </Container>

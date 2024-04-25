@@ -5,19 +5,26 @@ import { useDispatch } from 'react-redux'
 interface IProps {
     icon: React.ReactElement
     children: string | React.ReactElement
+    variant?: 'contained' | 'text'
     handleClick?: any
     handleClickActions?: UnknownAction[]
     disabled?: boolean
 }
 
-export default function IconButton({ icon, children, handleClick, handleClickActions, disabled = false }: IProps) {
+export default function IconButton({
+    icon,
+    children,
+    variant = 'text',
+    handleClick,
+    handleClickActions,
+    disabled = false,
+}: IProps) {
     const dispatch = useDispatch()
     return (
         <Button
             startIcon={icon}
-            variant="text"
-            color="inherit"
-            component="label"
+            variant={variant}
+            color={!disabled && variant === 'text' ? 'inherit' : 'primary'}
             onClick={() => {
                 if (handleClick) {
                     return handleClick()

@@ -8,7 +8,11 @@ import { ActionCreators } from 'redux-undo'
 import { rootStateSchema } from '../types'
 import { alertClosed, alertSetted } from '../features/alert/alertSlice'
 
-export default function UploadFile() {
+interface IProps {
+    variant?: 'contained' | 'text'
+}
+
+export default function UploadFile({ variant }: IProps) {
     const dispatch = useDispatch()
     const fileInput: React.RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null)
 
@@ -33,8 +37,8 @@ export default function UploadFile() {
                 dispatch(settingModified(data.settings))
                 dispatch(lifePointsSetted(data.lifePoints))
             } catch (e) {
-                if(fileInput?.current?.value) {
-                fileInput.current.value = ''
+                if (fileInput?.current?.value) {
+                    fileInput.current.value = ''
                 }
                 console.log('Error while loading JSON data: ', e)
                 dispatch(
@@ -49,7 +53,7 @@ export default function UploadFile() {
     }
 
     return (
-        <IconButton icon={<FileOpenIcon />}>
+        <IconButton icon={<FileOpenIcon />} variant={variant}>
             <>
                 Load save
                 <input type="file" ref={fileInput} accept=".json" hidden onChange={handleUpload} />
