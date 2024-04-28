@@ -14,6 +14,7 @@ export default function DialogAddPoint() {
         <>
             <Fab
                 color="primary"
+                className="screen-only"
                 aria-label="Add life point"
                 onClick={handleOpenState}
                 sx={{
@@ -21,9 +22,6 @@ export default function DialogAddPoint() {
                     float: 'right',
                     mt: '-100px',
                     mr: '50px',
-                    '@media print': {
-                        display: 'none',
-                    },
                 }}
             >
                 <AddIcon />

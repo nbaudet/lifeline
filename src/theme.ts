@@ -25,6 +25,23 @@ const themeOptions: ThemeOptions = {
         fontFamily: 'Source Sans Pro',
         fontWeightMedium: 600,
     },
+    components: {
+        MuiCssBaseline: {
+            styleOverrides: {
+                '.screen-only': {
+                    '@media print': {
+                        display: 'none !important',
+                    },
+                },
+                '.print-only': {
+                    display: 'none',
+                    '@media print': {
+                        display: 'block',
+                    },
+                },
+            },
+        },
+    },
 }
 
 const theme = createTheme(themeOptions)

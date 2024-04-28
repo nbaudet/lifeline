@@ -9,14 +9,7 @@ import Print from '../components/Print'
 
 export default function CustomToolbar() {
     return (
-        <AppBar
-            sx={{
-                position: 'relative',
-                '@media print': {
-                    display: 'none',
-                },
-            }}
-        >
+        <AppBar className="screen-only" sx={{ position: 'relative' }}>
             <Toolbar>
                 <Title />
                 <Undo />

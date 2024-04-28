@@ -4,6 +4,7 @@ import UploadFile from '../components/UploadFile'
 import LoadSample from '../components/LoadSample'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import LPAccordion from '../components/LPAccordion'
+import { FileDownload } from '@mui/icons-material'
 
 interface ICardProps {
     title: string
@@ -48,7 +49,8 @@ export default function Wizard() {
                         <>
                             <Typography gutterBottom>
                                 Your graph is not sent or stored on the Internet. Instead you manage your own data by
-                                downloading your progress ("Save to file" button).
+                                downloading your progress using the <FileDownload sx={{ verticalAlign: 'bottom' }} />{' '}
+                                button.
                             </Typography>
                             <Typography>
                                 To test this, you can disconnect from Internet and see that the app still works as
@@ -63,15 +65,16 @@ export default function Wizard() {
                         </Typography>
                     </LPAccordion>
                     <LPAccordion title={'What is a life line graph?'}>
-                        <>
-                            <Typography gutterBottom>
-                                If you want to learn more about life line graphs, I found this page provides a good
-                                explanation.
-                            </Typography>
-                            <Button size="small" href="https://cherylpence.com/life-line">
-                                More about Lifeline graphs
-                            </Button>
-                        </>
+                        <Typography gutterBottom>
+                            If you want to learn more about life line graphs, I found{' '}
+                            <a
+                                title="Read Dr Chery Pence life line explanation"
+                                href="https://cherylpence.com/life-line"
+                            >
+                                this page
+                            </a>{' '}
+                            provides a good explanation.
+                        </Typography>
                     </LPAccordion>
                 </CardContent>
                 <CardActions>
